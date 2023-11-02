@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:task_one/Data/Models/users_model/users_model.dart';
 import '../../../Core/Images/App_Image.dart';
 import '../../../Core/Styles/text_Style.dart';
 
@@ -7,21 +7,19 @@ class CategoriesListView extends StatelessWidget {
   const CategoriesListView({
     super.key,
     required this.device,
-    required this.lisicons,
-    required this.title,
+    required this.data,
   });
-
+  final List<UsersModel> data;
   final Size device;
-  final List<String> lisicons;
-  final List<String> title;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: title.length * device.height * 0.105,
+      height: data.length * device.height * 0.105,
       child: ListView.builder(
         shrinkWrap: true,
         physics: const ClampingScrollPhysics(),
-        itemCount: title.length,
+        itemCount: data.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.symmetric(vertical: device.height * 0.01),
@@ -45,12 +43,12 @@ class CategoriesListView extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Image.asset(lisicons[index]),
+                          Text(data[index].id.toString()),
                           SizedBox(
                             width: device.width * 0.03,
                           ),
                           Text(
-                            title[index],
+                            data[index].name.toString(),
                             style: Txtstyle.style16(context: context)
                                 .copyWith(fontWeight: FontWeight.w400),
                           ),
