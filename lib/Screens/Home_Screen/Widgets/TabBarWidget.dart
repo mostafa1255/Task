@@ -43,10 +43,22 @@ class TabBarWidget extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Categories Viewsee all",
-                          style: Txtstyle.style14(context: context)
-                              .copyWith(fontWeight: FontWeight.w400),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Categories View",
+                              style: Txtstyle.style14(context: context)
+                                  .copyWith(fontWeight: FontWeight.w400),
+                            ),
+                            Text(
+                              "see all",
+                              style: Txtstyle.style14(context: context)
+                                  .copyWith(
+                                      fontWeight: FontWeight.w300,
+                                      decoration: TextDecoration.underline),
+                            ),
+                          ],
                         ),
                         SizedBox(
                           height: device.height * 0.02,
